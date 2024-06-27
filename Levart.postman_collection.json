@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "ae959772-2c3f-4b3a-afc7-b3ef416277e2",
+		"name": "Levart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5974717"
+	},
+	"item": [
+		{
+			"name": "GetToken Oauth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "kurokos11",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/src/getToken.php",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"src",
+						"getToken.php"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Email Sending",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "recipient",
+							"value": "muchamad.arvan27@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "subject",
+							"value": "Test Subject",
+							"type": "text"
+						},
+						{
+							"key": "body",
+							"value": "HALLO HALLO HALLO HALLO",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/src/sendEmail.php",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"src",
+						"sendEmail.php"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bearerToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDE1OTZlMjY4ZDA5N2MyMmM4ZmVkZDIzMTk3NGZkNGVkNGU5ZDZlNjFlN2ZiYjUwODViNjdiMDQ0OTgwZGE2MzM1NGRhYzgyNTlmMDYwMmQiLCJpYXQiOjE3MTk0NTA0NDEuNjM5OTI3LCJuYmYiOjE3MTk0NTA0NDEuNjM5OTMsImV4cCI6MTcxOTQ1NDA0MS42MTYwMTQsInN1YiI6IiIsInNjb3BlcyI6W119.L6UFWm6WjFCkxUkDFOqaFcUrAASXtcSDyJhREt3Sbpk2MQAcB9ME5V-SA9pjsxlxlpK7JoWM-eTIw624YdcUahSVvrGl5EEsVkcDUTdjUMmXweGA-K_NwVI0XHJ_kNxR8K4r6R2dhpaYlnOQyvVq2DuYu6ffys5lyaDYD6QaDexX-uvdieL2Dtihoc5b9hE2aSSosL-pYJ0RE3IZVyY250sxX3pqKGL2F7k2Z4KlBczlu1tbZFnja4PTOaS4GiXN1NjbqzVxSyoSrtetRYKiH_JL3Bnj18Hqm3ELKRh0vHzGA2v2m0quIrApRoGbyOF4XaHArJxD0Z7kr3eV7hVJdg",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
